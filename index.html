@@ -45,6 +45,16 @@
 <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">'.be-a-happy-rainbow'</span><span class="p">).</span><span class="nx">rainbowify</span><span class="p">();</span>
 </pre></div>
 
+<div class='rain be-a-happy-rainbow'></div>
+<center><button id="make-a-rainbow">Make a Rainbow</button></center>
+<script>
+  $(document).ready(function(){
+    $('#make-a-rainbow').on('click', function(){
+      $('.be-a-happy-rainbow').rainbowify();
+    });
+  })
+</script>
+
 <h2>Highly Configurable Rainbows!</h2>
 
 <p>Change the colors of the rainbow. You can even make a sad gray rainbow</p>
@@ -56,11 +66,37 @@
   <span class="p">})</span>
 </pre></div>
 
+<div class='rain be-a-sad-rainbow'></div>
+<center><button id="make-another-rainbow">Make a sad Rainbow</button></center>
+<script>
+  $(document).ready(function(){
+    $('#make-another-rainbow').on('click', function(){
+      $('.be-a-sad-rainbow').rainbowify({
+          colors:[
+            "#333","#444", "#555", "#666", "#777", "#888", "#999", "#333"
+          ]
+      });
+    })
+  })
+</script>
+
 <p>Turn the rainbow off after 10 seconds</p>
 
 <div class="highlight"><pre>  <span class="nx">$</span><span class="p">(</span><span class="s1">'.temperary-rainbow'</span><span class="p">).</span><span class="nx">rainbowify</span><span class="p">({</span><span class="nx">duration</span><span class="o">:</span> <span class="mi">10000</span><span class="p">})</span>
 </pre></div>
 
+
+<div class='be-a-temp-rainbow rain'></div>
+<center><button id="make-a-temp-rainbow">Make a temp Rainbow</button></center>
+<script>
+  $(document).ready(function(){
+    $('#make-a-temp-rainbow').on('click', function(){
+      $('.be-a-temp-rainbow').rainbowify({
+        duration: 10000
+      });
+    });
+  })
+</script>
 <p>Turn the rainbow off at will</p>
 
 <div class="highlight"><pre>  <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s1">'.be-a-happy-rainbow'</span><span class="p">);</span>
@@ -89,6 +125,12 @@
     <p class="name"></p>
   </div>
 
-  
+  <script src="javascripts/jquery.rainbowify.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('h1.title').rainbowify();
+    });
+  </script>
+
 </body>
 </html>
