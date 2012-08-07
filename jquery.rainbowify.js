@@ -79,8 +79,13 @@
 
   Rainbowify.prototype = {
     type: 'rainbowify',
+
+    trigger: function(e){ this.elem.trigger('rainbow:'+e, [this]),
+
     stop: function(){
+      this.trigger('before_stop');
       this.$elem.css(this.state);
+      this.trigger('on_stop');
     },
 
     getOptions: function(options){
@@ -88,11 +93,14 @@
     },
 
     animate: function(){
+      this.trigger('before_start');
+      VENDORED_CSS_PROPS[helpers.keyframeprefix + 'animation-duration'] = this.options.speed;
       this.elem.style[ 'background' ] = helpers.keyframeprefix +
                                         "linear-gradient(left," +
                                         this.options.colors.join(",") +
                                         ") repeat";
       this.$elem.css(VENDORED_CSS_PROPS);
+      this.trigger('on_start');
     },
 
     storeState: function(){
@@ -131,6 +139,7 @@
   $.fn.rainbowify.Constructor = Rainbowify;
   $.fn.rainbowify.defaults = {
     duration: undefined,
+    speed: '5s',
     colors: [
       '#7965d3', '#ff7a7a', '#ddb56a', '#9ace63',
       '#16ceb6', '#1549c1', '#7965d3'
