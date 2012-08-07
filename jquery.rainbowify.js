@@ -22,6 +22,7 @@
 
     var helpers = {
       canAnimate: function(elm){
+        if(typeof elm === 'undefined') return;
         var domPrefixes = 'Webkit Moz O ms Khtml'.split(' '),
             animation = false,
             pfx = '';
