@@ -81,7 +81,9 @@
   Rainbowify.prototype = {
     type: 'rainbowify',
 
-    trigger: function(e){ this.elem.trigger('rainbow:'+e, [this]),
+    trigger: function(e){
+      this.$elem.trigger('rainbow:'+e, [this]);
+    },
 
     stop: function(){
       this.trigger('before_stop');
